@@ -40,7 +40,7 @@ More about me:
 
 export const resume = async (args: string[]): Promise<string> => {
   window.open(`${config.resume_url}`);
-  return 'Opening resume...';
+  return 'Opening my resume (resume_final_JULY.pdf)...';
 };
 
 
