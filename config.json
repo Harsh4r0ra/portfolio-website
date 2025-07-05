@@ -1,0 +1,35 @@
+{
+  "readmeUrl": "https://raw.githubusercontent.com/Harsh4r0ra/Harsh4r0ra/master/README.md",
+  "title": "Harsh Arora",
+  "name": "Harsh Arora",
+  "ascii": "liveterm",
+  "social": {
+    "github": "Harsh4r0ra",
+    "linkedin": "harsh-arora-4980b8165"
+  },
+  "email": "harsharora.work@gmail.com",
+  "ps1_hostname": "HARSHARORA",
+  "ps1_username": "visitor",
+  "repo": "https://github.com/Harsh4r0ra",
+  "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
+  "colors": {
+    "light": {
+      "background": "#282a36",
+      "foreground": "#f8f8f2",
+      "yellow": "#f1fa8c",
+      "green": "#50fa7b",
+      "gray": "#6272a4",
+      "blue": "#8be9fd",
+      "red": "#ff5555"
+    },
+    "dark": {
+      "background": "#282a36",
+      "foreground": "#f8f8f2",
+      "yellow": "#f1fa8c",
+      "green": "#50fa7b",
+      "gray": "#6272a4",
+      "blue": "#8be9fd",
+      "red": "#ff5555"
+    }
+  }
+}
