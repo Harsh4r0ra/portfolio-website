@@ -8,18 +8,18 @@ export const History: React.FC<{ history: Array<HistoryInterface> }> = ({
   return (
     <>
       {history.map((entry: HistoryInterface, index: number) => (
-        <div key={entry.command + index}>
-          <div className="flex flex-row space-x-2">
-            <div className="flex-shrink">
+        <div key={entry.command + index} className="mb-4">
+          <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2">
+            <div className="flex-shrink-0">
               <Ps1 />
             </div>
 
-            <div className="flex-grow">{entry.command}</div>
+            <div className="flex-grow break-all">{entry.command}</div>
           </div>
 
-          <p
-            className="whitespace-pre-wrap mb-2"
-            style={{ lineHeight: 'normal' }}
+          <div
+            className="whitespace-pre-wrap mt-2 text-sm sm:text-base"
+            style={{ lineHeight: '1.6' }}
             dangerouslySetInnerHTML={{ __html: entry.output }}
           />
         </div>

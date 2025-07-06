@@ -21,9 +21,79 @@ div#__next > div {
   overflow: auto;
 }
 
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  * {
+    font-size: 14px;
+  }
+  
+  /* Improve touch targets */
+  input, button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better text readability on mobile */
+  p, div {
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Prevent horizontal scrolling */
+  pre, code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+  }
+  
+  /* Improve table readability on mobile */
+  table {
+    font-size: 12px;
+  }
+  
+  /* Make ASCII art responsive */
+  .ascii-art {
+    font-size: 8px;
+    line-height: 1.2;
+  }
+  
+  /* Improve command input on mobile */
+  input[type="text"] {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 8px;
+  }
+}
+
+/* Tablet improvements */
+@media (min-width: 769px) and (max-width: 1024px) {
+  * {
+    font-size: 15px;
+  }
+  
+  .ascii-art {
+    font-size: 10px;
+  }
+}
+
+/* Desktop improvements */
+@media (min-width: 1025px) {
+  .ascii-art {
+    font-size: 12px;
+  }
+}
+
+/* Improve scrollbar for mobile */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -38,4 +108,38 @@ div#__next > div {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ff8037;
+}
+
+/* Mobile keyboard improvements */
+@media (max-width: 768px) {
+  /* Prevent zoom on input focus */
+  input[type="text"] {
+    font-size: 16px;
+  }
+  
+  /* Better touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px;
+  }
+  
+  /* Improve text selection */
+  ::selection {
+    background: #ebdbb2;
+    color: #1e252e;
+  }
+  
+  /* Better focus indicators */
+  input:focus {
+    outline: 2px solid #ebdbb2;
+    outline-offset: 2px;
+  }
+}
+
+/* Dark mode improvements for mobile */
+@media (max-width: 768px) {
+  .dark input:focus {
+    outline-color: #8be9fd;
+  }
 }

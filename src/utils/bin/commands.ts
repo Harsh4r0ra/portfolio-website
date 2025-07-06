@@ -34,13 +34,13 @@ Available Commands:
       helpText += `\n${category}:\n`;
       helpText += '─'.repeat(50) + '\n';
       
-      // Create a table format
-      const maxCols = 3;
-      for (let i = 0; i < cmdList.length; i += maxCols) {
-        const row = cmdList.slice(i, i + maxCols);
-        const formattedRow = row.map(cmd => `  ${cmd.padEnd(15)}`).join('');
-        helpText += formattedRow + '\n';
-      }
+          // Create a responsive table format
+    const maxCols = 2; // Use 2 columns for better mobile display
+    for (let i = 0; i < cmdList.length; i += maxCols) {
+      const row = cmdList.slice(i, i + maxCols);
+      const formattedRow = row.map(cmd => `  ${cmd.padEnd(12)}`).join('');
+      helpText += formattedRow + '\n';
+    }
     }
 
     helpText += `
@@ -759,13 +759,14 @@ Available commands: ${Object.keys(bin).sort().join(', ')}`;
 
 // Banner
 export const banner = (args?: string[]): string => {
-  return `
+  return `<div class="ascii-art">
 ██╗  ██╗ █████╗ ██████╗ ███████╗██╗  ██╗    █████╗ ██████╗  ██████╗ ██████╗  █████╗ 
 ██║  ██║██╔══██╗██╔══██╗██╔════╝██║  ██║   ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██╔══██╗
 ███████║███████║██████╔╝███████╗███████║   ███████║██████╔╝██║   ██║██████╔╝███████║
 ██╔══██║██╔══██║██╔══██╗╚════██║██╔══██║   ██╔══██║██╔══██╗██║   ██║██╔══██╗██╔══██║
 ██║  ██║██║  ██║██║  ██║███████║██║  ██║   ██║  ██║██║  ██║╚██████╔╝██║  ██║██║  ██║
 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+</div>
 
 Type 'help' to see the list of available commands.
 Type 'sumfetch' to display summary.
