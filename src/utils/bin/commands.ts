@@ -3,24 +3,76 @@
 import * as bin from './index';
 import config from '../../../config.json';
 
-// Help
-export const help = async (args: string[]): Promise<string> => {
-  const commands = Object.keys(bin).sort().join(', ');
-  var c = '';
-  for (let i = 1; i <= Object.keys(bin).sort().length; i++) {
-    if (i % 7 === 0) {
-      c += Object.keys(bin).sort()[i - 1] + '\n';
-    } else {
-      c += Object.keys(bin).sort()[i - 1] + ' ';
-    }
-  }
-  return `Welcome! Here are all the available commands:
-\n${c}\n
-[tab]: trigger completion.
-[ctrl+l]/clear: clear terminal.\n
-Type 'sumfetch' to display summary.
+  // Help
+  export const help = async (args: string[]): Promise<string> => {
+    const commands = Object.keys(bin).sort();
+    
+    // Categorize commands
+    const categories = {
+      'General': ['help', 'about', 'banner', 'sumfetch'],
+      'Profile': ['resume', 'readme'],
+      'Social': ['github', 'linkedin', 'email', 'repo'],
+      'Search': ['google', 'duckduckgo', 'bing', 'reddit'],
+      'Projects': ['projects'],
+      'Weather': ['weather'],
+      'Fun': ['quote', 'sudo'],
+      'System': ['date', 'whoami', 'echo'],
+      'File System': ['ls', 'cd'],
+      'Editors': ['vi', 'vim', 'nvim', 'emacs']
+    };
+
+    let helpText = `
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                              Welcome to ${config.name}'s Terminal!                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Available Commands:
 `;
-};
+
+    // Generate categorized table
+    for (const [category, cmdList] of Object.entries(categories)) {
+      helpText += `\n${category}:\n`;
+      helpText += '─'.repeat(50) + '\n';
+      
+      // Create a table format
+      const maxCols = 3;
+      for (let i = 0; i < cmdList.length; i += maxCols) {
+        const row = cmdList.slice(i, i + maxCols);
+        const formattedRow = row.map(cmd => `  ${cmd.padEnd(15)}`).join('');
+        helpText += formattedRow + '\n';
+      }
+    }
+
+    helpText += `
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                              Quick Start Guide                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Try these commands to get started:
+  • sumfetch    - Display my summary and contact info
+  • about       - Learn more about me
+  • resume      - View my latest resume
+  • projects    - See my GitHub projects
+  • weather     - Check weather (e.g., weather london)
+
+Navigation:
+  • [Tab]       - Trigger command completion
+  • [Ctrl+L]    - Clear terminal
+  • [↑/↓]       - Navigate command history
+
+Quick Links:
+  • GitHub:     github
+  • LinkedIn:   linkedin
+  • Email:      email
+  • Repository: repo
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                              Total Commands: ${commands.length}                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+`;
+
+    return helpText;
+  };
 
 // Redirection
 export const repo = async (args: string[]): Promise<string> => {
