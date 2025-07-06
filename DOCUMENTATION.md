@@ -264,4 +264,4 @@ yarn start      # Start production server
 1. Edit `src/components/Ps1.tsx`
 2. Modify the prompt structure and styling
 
-This documentation should help you understand where each part of the LiveTerm website is stored and how to edit different components to customize your terminal website! 
+This documentation should help you understand where each part of the LiveTerm website is stored and how to edit different components to customize your terminal website!
